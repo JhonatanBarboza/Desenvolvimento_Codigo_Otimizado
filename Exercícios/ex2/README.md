@@ -41,7 +41,7 @@ cat analysis.txt
 ```bash
 make clean
 ```
-
+<!-- 
 ### Análise dos Resultados
 
 Os resultados do gprof mostram:
@@ -74,3 +74,4 @@ Embora todos os algoritmos tenham complexidade assintótica O(n²), na prática:
 - `ex2` - Executável compilado
 - `gmon.out` - Arquivo de profiling gerado pelo gprof
 - `analysis.txt` - Relatório de análise em texto
+-->

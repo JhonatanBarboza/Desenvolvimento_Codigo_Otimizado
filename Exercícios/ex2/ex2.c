@@ -8,8 +8,7 @@
 #include <string.h>
 #include <time.h>
 
-/*------------------------------------------------*/
-/* Code to remove data from the processor caches. */
+// Codigo remove dados dos caches do processador.
 #define KB (1024)
 #define MB (1024 * KB)
 #define GB (1024 * MB)
@@ -17,15 +16,14 @@
 
 static unsigned char dummy_buffer[LARGEST_CACHE_SZ];
 
-void clean_cache()
-{
+void clean_cache(){
     unsigned long long i;
     for (i = 0; i < LARGEST_CACHE_SZ; i++)
         dummy_buffer[i] += 1;
 }
 
 /*------------------------------------------------*/
-/* Algoritmos de ordenação para análise com gprof */
+/* Algoritmos de ordenação */
 
 // Bubble Sort - O(n²)
 void bubble_sort(int arr[], int n) {
@@ -71,7 +69,9 @@ void insertion_sort(int arr[], int n) {
 }
 
 /*------------------------------------------------*/
-/* Função auxiliar para copiar array */
+/* Funções auxiliares */
+
+// Função para copiar um array
 void copy_array(int source[], int dest[], int n) {
     int i;
     for (i = 0; i < n; i++) {
@@ -79,8 +79,7 @@ void copy_array(int source[], int dest[], int n) {
     }
 }
 
-/*------------------------------------------------*/
-/* Função auxiliar para gerar array aleatório */
+// Função para gerar um array de inteiros aleatórios
 void generate_random_array(int arr[], int n) {
     int i;
     srand(time(NULL));

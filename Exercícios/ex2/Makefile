@@ -24,6 +24,7 @@ profile: $(TARGET)
 	./$(TARGET)
 	gprof $(TARGET) gmon.out > analysis.txt
 	@echo "Análise completa salva em analysis.txt"
+	@echo "Para ver a análise: cat analysis.txt"
 
 # Limpar arquivos gerados
 clean:
