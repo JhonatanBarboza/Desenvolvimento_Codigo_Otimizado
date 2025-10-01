@@ -12,7 +12,8 @@
 #define KB (1024)
 #define MB (1024 * KB)
 #define GB (1024 * MB)
-#define LARGEST_CACHE_SZ (8 * MB)
+// No linux rodar 'sudo dmidecode -t cache' para descobrir o tamanho do maior cache (L3) e subistituir o numero que muitiplica MB
+#define LARGEST_CACHE_SZ (12 * MB) 
 
 static unsigned char dummy_buffer[LARGEST_CACHE_SZ];
 

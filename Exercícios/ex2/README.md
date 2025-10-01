@@ -41,37 +41,8 @@ cat analysis.txt
 ```bash
 make clean
 ```
-<!-- 
-### Análise dos Resultados
-
-Os resultados do gprof mostram:
-
-1. **Bubble Sort** - 44.80% do tempo total (0.56s)
-   - Mais lento dos três algoritmos
-   - 56ms por chamada em média
-
-2. **Selection Sort** - 16.00% do tempo total (0.20s)
-   - Performance intermediária
-   - 20ms por chamada em média
-
-3. **Insertion Sort** - 11.20% do tempo total (0.14s)
-   - Mais rápido dos três algoritmos
-   - 14ms por chamada em média
-
-4. **clean_cache()** - 28.00% do tempo total (0.35s)
-   - Função executada 30 vezes (3x por algoritmo)
-   - Essencial para garantir medições justas
-
-### Conclusões Teóricas vs Práticas
-
-Embora todos os algoritmos tenham complexidade assintótica O(n²), na prática:
-
-- **Insertion Sort** mostrou melhor performance devido ao seu comportamento otimizado para dados parcialmente ordenados
-- **Selection Sort** teve performance intermediária com número fixo de comparações
-- **Bubble Sort** foi o mais lento devido ao maior número de trocas necessárias
 
 ### Arquivos Gerados
 - `ex2` - Executável compilado
 - `gmon.out` - Arquivo de profiling gerado pelo gprof
 - `analysis.txt` - Relatório de análise em texto
--->
