@@ -9,18 +9,17 @@
 #include <time.h>
 
 // Codigo remove dados dos caches do processador.
-#define KB (1024)
-#define MB (1024 * KB)
-#define GB (1024 * MB)
-// No linux rodar 'sudo dmidecode -t cache' para descobrir o tamanho do maior cache (L3) e subistituir o numero que muitiplica MB
+#define KB (1024) 
+#define MB (1024 * KB) 
+#define GB (1024 * MB) 
 #define LARGEST_CACHE_SZ (12 * MB) 
-
-static unsigned char dummy_buffer[LARGEST_CACHE_SZ];
-
-void clean_cache(){
-    unsigned long long i;
-    for (i = 0; i < LARGEST_CACHE_SZ; i++)
-        dummy_buffer[i] += 1;
+static unsigned char dummy_buffer[LARGEST_CACHE_SZ]; 
+ 
+void clean_cache() 
+{ 
+  unsigned long long i; 
+  for (i=0; i<LARGEST_CACHE_SZ; i++) 
+    dummy_buffer[i] += 1; 
 }
 
 /*------------------------------------------------*/
@@ -85,15 +84,14 @@ void generate_random_array(int arr[], int n) {
     int i;
     srand(time(NULL));
     for (i = 0; i < n; i++) {
-        arr[i] = rand() % 10000;
+        arr[i] = rand() % 10000000;
     }
 }
 
 /*------------------------------------------------*/
 /* Função principal */
 int main() {
-    const int ARRAY_SIZE = 5000;  // Tamanho do array para teste
-    const int NUM_EXECUTIONS = 10; // Número de execuções para cada algoritmo
+    const int ARRAY_SIZE = 20000;  // Tamanho do array para teste
     
     int *original_array = malloc(ARRAY_SIZE * sizeof(int));
     int *test_array = malloc(ARRAY_SIZE * sizeof(int));
@@ -107,25 +105,20 @@ int main() {
     generate_random_array(original_array, ARRAY_SIZE);
     
     // Teste do Bubble Sort
-    for (int i = 0; i < NUM_EXECUTIONS; i++) {
-        clean_cache();
-        copy_array(original_array, test_array, ARRAY_SIZE);
-        bubble_sort(test_array, ARRAY_SIZE);
-    }
+    clean_cache();
+    copy_array(original_array, test_array, ARRAY_SIZE);
+    bubble_sort(test_array, ARRAY_SIZE);
     
     // Teste do Selection Sort
-    for (int i = 0; i < NUM_EXECUTIONS; i++) {
-        clean_cache();
-        copy_array(original_array, test_array, ARRAY_SIZE);
-        selection_sort(test_array, ARRAY_SIZE);
-    }
+    clean_cache();
+    copy_array(original_array, test_array, ARRAY_SIZE);
+    selection_sort(test_array, ARRAY_SIZE);
     
     // Teste do Insertion Sort
-    for (int i = 0; i < NUM_EXECUTIONS; i++) {
-        clean_cache();
-        copy_array(original_array, test_array, ARRAY_SIZE);
-        insertion_sort(test_array, ARRAY_SIZE);
-    }
+    clean_cache();
+    copy_array(original_array, test_array, ARRAY_SIZE);
+    insertion_sort(test_array, ARRAY_SIZE);
+
     
     free(original_array);
     free(test_array);

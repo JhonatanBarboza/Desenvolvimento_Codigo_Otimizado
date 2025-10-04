@@ -27,14 +27,47 @@ make
 make run
 ```
 
-#### Análise Completa (Executa + Gera Relatório)
+#### Executar 10 Vezes (com pausa entre execuções)
+```bash
+make run10
+```
+
+#### Executar 10 Vezes (versão rápida)
+```bash
+make run10fast
+```
+
+#### Análise Simples (Executa + Gera Relatório)
 ```bash
 make profile
 ```
 
+#### Análise Completa (Executa 10 vezes + Gera 10 relatórios)
+```bash
+make profile10
+```
+
+#### Gerar Grafo Visual (a partir de dados existentes)
+```bash
+make graph
+```
+
+#### Análise com Visualização (Executa + Gera grafo PNG)
+```bash
+make profile_visual
+```
+
 #### Ver Análise
 ```bash
-cat analysis.txt
+cat analysis.txt           # Análise simples
+cat analysis_final.txt     # Análise final das 10 execuções
+cat analysis_visual.txt    # Análise para visualização
+```
+
+#### Visualizar Grafo
+```bash
+# Abrir o arquivo PNG gerado
+xdg-open profile_graph.png
 ```
 
 #### Limpeza
