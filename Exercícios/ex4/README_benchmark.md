@@ -12,6 +12,12 @@ chmod +x benchmark.sh
 ./benchmark.sh fasta.c
 ./benchmark.sh n-body.c
 ```
+## Limpeza:
+
+Para remover os executáveis gerados:
+```bash
+rm executavel_*
+```
 
 ## O que o script faz:
 
@@ -27,7 +33,7 @@ chmod +x benchmark.sh
 ### B. Medições automáticas:
 
 #### I. Tempo de Compilação:
-- Compila cada versão 3 vezes e calcula a média
+- Compila cada versão 10 vezes e calcula a média
 - Usa o comando `time` para medir precisão
 
 #### II. Tamanho do Executável:
@@ -35,7 +41,7 @@ chmod +x benchmark.sh
 - Mostra resumo com `ls -lh`
 
 #### III. Tempo de Execução:
-- Executa cada programa 5 vezes
+- Executa cada programa 10 vezes
 - Calcula a média dos tempos
 - Usa `time` para medição precisa
 - **Parâmetros automáticos**:
@@ -49,37 +55,16 @@ O script gera:
 2. **Arquivo de resultados**: `resultados_<nome_programa>.txt` com dados detalhados
 3. **Resumo dos executáveis**: Tamanhos dos arquivos gerados
 
-## Exemplo de uso:
-
-```bash
-# Para o arquivo fasta.c
-./benchmark.sh fasta.c
-
-# Para o arquivo n-body.c  
-./benchmark.sh n-body.c
-```
-
 ## Resultados típicos observados:
 
-### n-body.c:
-- **Tempo de execução sem otimização**: ~20.5s
-- **Tempo de execução com -O3**: ~2.8s (**7x mais rápido!**)
-- **Tamanho sem otimização**: ~20KB
-- **Tamanho com otimização**: ~16KB
+#### fasta.c
+- **Melhor performance:** -O3 (52% mais rápido)
+- **Comportamento consistente:** -O1, -O2 e -O3 apresentam performance similar (~51-52% melhoria)
+- **-Os neutro:** Performance equivalente ao código não otimizado
+- **Ganho moderado:** Máximo de 1.52x de speedup
 
-### fasta.c:
-- **Tempo de execução sem otimização**: ~3.58s
-- **Tempo de execução com -O1**: ~2.41s (**1.5x mais rápido!**)
-- **Tempo de execução com -O2**: ~2.41s (similar ao -O1)
-- **Tempo de execução com -O3**: ~2.45s (ligeiramente mais lento que -O1/-O2)
-- **Tempo de execução com -Os**: ~3.68s (mais lento que sem otimização)
-- **Tamanho sem otimização**: ~16.29KB
-- **Tamanho com otimizações**: ~16.01KB (redução mínima)
-- **Melhor performance**: -O1 e -O2 oferecem o melhor custo-benefício
-
-## Limpeza:
-
-Para remover os executáveis gerados:
-```bash
-rm executavel_*
-```
+#### n-body.c
+- **Melhor performance:** -O3 (7.37x mais rápido)
+- **Ganho significativo:** Todas as otimizações oferecem speedup > 5x
+- **Progressão clara:** O1 ≈ O2 ≈ Os < O3
+- **Alto potencial de otimização:** Devido à natureza matemática intensiva

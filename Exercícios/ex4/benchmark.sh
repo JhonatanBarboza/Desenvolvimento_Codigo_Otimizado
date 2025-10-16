@@ -33,7 +33,7 @@ SUFFIXES=("base" "o1" "o2" "o3" "os")
 DESCRIPTIONS=("Sem otimização" "Otimização -O1" "Otimização -O2" "Otimização -O3" "Otimização -Os")
 
 # Número de execuções para calcular a média
-NUM_EXECUTIONS=5
+NUM_EXECUTIONS=10
 
 # Determina parâmetros baseado no nome do arquivo
 PROGRAM_ARGS=""
@@ -78,9 +78,9 @@ for i in "${!FLAGS[@]}"; do
     # 1. TEMPO DE COMPILAÇÃO
     echo "  Medindo tempo de compilação..."
     
-    # Compila 3 vezes e calcula a média do tempo de compilação
+    # Compila 10 vezes e calcula a média do tempo de compilação
     TOTAL_COMPILE_TIME=0
-    for j in {1..3}; do
+    for j in {1..10}; do
         # Determina flags extras baseado no nome do arquivo
         EXTRA_FLAGS=""
         case "$BASE_NAME" in
@@ -95,7 +95,7 @@ for i in "${!FLAGS[@]}"; do
         COMPILE_TIME=$((/usr/bin/time -f "%e" gcc $FLAG $EXTRA_FLAGS -o "$EXECUTABLE" "$SOURCE_FILE") 2>&1 | tail -n1)
         TOTAL_COMPILE_TIME=$(echo "$TOTAL_COMPILE_TIME + $COMPILE_TIME" | bc -l)
     done
-    AVG_COMPILE_TIME=$(echo "scale=4; $TOTAL_COMPILE_TIME / 3" | bc -l)
+    AVG_COMPILE_TIME=$(echo "scale=4; $TOTAL_COMPILE_TIME / 10" | bc -l)
     
     # 2. TAMANHO DO EXECUTÁVEL
     if [ -f "$EXECUTABLE" ]; then
