@@ -1,0 +1,24 @@
+RESULTADOS DO BENCHMARK - n-body.c
+Data: qui 16 out 2025 17:27:11 -03
+=================================================
+
+CONFIGURAÇÃO       TEMPO COMP.(s)  TAMANHO(KB)     TEMPO EXEC.(s) 
+--------------------------------------------------------------------
+Testando: Sem otimização ()
+Sem otimização     .3733           19.81           19.3200        
+Testando: Otimização -O1 (-O1)
+Otimização -O1     .4633           15.71           3.3440         
+Testando: Otimização -O2 (-O2)
+Otimização -O2     .4866           15.72           3.3380         
+Testando: Otimização -O3 (-O3)
+Otimização -O3     .5000           15.72           2.6760         
+Testando: Otimização -Os (-Os)
+Otimização -Os     .4933           15.75           3.3880         
+
+RESUMO DOS EXECUTÁVEIS GERADOS:
+================================
+-rwxrwxr-x 1 jhonatan jhonatan 20K out 16 17:27 executavel_base
+-rwxrwxr-x 1 jhonatan jhonatan 16K out 16 17:28 executavel_o1
+-rwxrwxr-x 1 jhonatan jhonatan 16K out 16 17:29 executavel_o2
+-rwxrwxr-x 1 jhonatan jhonatan 16K out 16 17:29 executavel_o3
+-rwxrwxr-x 1 jhonatan jhonatan 16K out 16 17:29 executavel_os

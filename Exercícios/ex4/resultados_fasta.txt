@@ -1,0 +1,24 @@
+RESULTADOS DO BENCHMARK - fasta.c
+Data: qui 16 out 2025 17:32:44 -03
+=================================================
+
+CONFIGURAÇÃO       TEMPO COMP.(s)  TAMANHO(KB)     TEMPO EXEC.(s) 
+--------------------------------------------------------------------
+Testando: Sem otimização ()
+Sem otimização     .0733           16.29           3.5820         
+Testando: Otimização -O1 (-O1)
+Otimização -O1     .0900           16.06           2.4060         
+Testando: Otimização -O2 (-O2)
+Otimização -O2     .1433           16.01           2.4140         
+Testando: Otimização -O3 (-O3)
+Otimização -O3     .1433           16.01           2.4540         
+Testando: Otimização -Os (-Os)
+Otimização -Os     .1000           16.01           3.6780         
+
+RESUMO DOS EXECUTÁVEIS GERADOS:
+================================
+-rwxrwxr-x 1 jhonatan jhonatan 17K out 16 17:32 executavel_base
+-rwxrwxr-x 1 jhonatan jhonatan 17K out 16 17:33 executavel_o1
+-rwxrwxr-x 1 jhonatan jhonatan 17K out 16 17:33 executavel_o2
+-rwxrwxr-x 1 jhonatan jhonatan 17K out 16 17:33 executavel_o3
+-rwxrwxr-x 1 jhonatan jhonatan 17K out 16 17:33 executavel_os
